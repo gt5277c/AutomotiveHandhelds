@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <!-- Environment -->
+    <!-- <entry key="environment">Test</entry> -->
+    <!-- <entry key="environment">QA</entry> -->
+    <!-- <entry key="environment">ProdQA</entry> -->
+    <entry key="environment">Prod</entry>
+    
+    <!--Locations-->
+    <entry key="locations">Baltimore,Birmingham,Buechel,Buffalo,Chicago,Commerce,Doremus,Elkhart,FAPS,Fostoria,Jacksonville,Jefferson,KansasCity,Ladson,Mechanicville,Melvindale,NewOrleans,NorthBergen,Petersburg,PooleCreek,PortWilmington,Ridgefield,Sanvel,Shelbyville,SterlingHeights,Wentzville,WinstonSalem</entry>
+</properties>
