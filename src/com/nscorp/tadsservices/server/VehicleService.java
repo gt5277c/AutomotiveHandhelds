@@ -710,8 +710,10 @@ public class VehicleService {
 				try {					
 					Location baylocation = baylogic.GetNextEmptyLLSpotNoCheck(requestvehicle.getZone(), requestvehicle.getRow(), requestvehicle);
 					if(baylocation != null) {
+						
+						//Have a location now inbound the vehicle to the location
 						requestvehicle.updateVehicleLocation(baylocation);
-						requestvehicle.Save();
+						requestvehicle = baylogic.AddVIN(requestvehicle, eBayArrival.eBay_TruckIn);	
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -1161,7 +1163,12 @@ public class VehicleService {
 					} else {
 						System.out.println("found ASN for vehicle " + vin + ".  Now look for a bay location");
 						
-						//Update the vehicle with the request user,time,truck company, and load number
+						//Update the vehicle with the request 
+						//	user,time,truck company, and load number
+						//	Make sure the route and dealer are blank so won't update
+						requestvehicle.setRoute(null);
+						requestvehicle.setDealer(null);
+						
 						vehicle.updateVehicle(requestvehicle);
 
 						//BayLogic - Prebay vehicle
