@@ -224,6 +224,7 @@ public class RailspotDAO extends TADSDAO<Railspot>{
 				put("tblRailCarHist_Spot", "Spot");
 				
 				put("LoadGroup","LoadGroup");
+				put("tblRailCar_Group","LoadGroup");
 				put("tblRailCarHist_Group","LoadGroup");
 				
 				put("tblRailCar_Mfg", "Mfg");

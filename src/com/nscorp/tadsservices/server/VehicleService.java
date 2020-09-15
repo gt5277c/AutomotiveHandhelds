@@ -703,7 +703,18 @@ public class VehicleService {
 
 				//Update the requestvehicle with ASN information
 				if(findvehicle != null) {
-					requestvehicle.updateVehicle(findvehicle);					
+					//Found the ASN now need to update any information provided by the request
+					findvehicle.setLotCode(Constants.LOADLINE_LOT);
+					findvehicle.setZone(requestvehicle.getZone());
+					findvehicle.setRow(requestvehicle.getRow());
+					findvehicle.setInboundSCAC(requestvehicle.getInboundSCAC());
+					findvehicle.setInboundTruckID(requestvehicle.getInboundTruckID());
+					findvehicle.setActionCode(Constants.ACTION_ADD_LL_DIRECT);
+					findvehicle.setChngWho(requestvehicle.getChngWho());
+					findvehicle.setChngDate(requestvehicle.getChngDate());
+
+					//Now need to make the vehicle found as the request vehicle
+					requestvehicle = findvehicle;
 				}			
 
 				//BayLogic
@@ -713,7 +724,7 @@ public class VehicleService {
 						
 						//Have a location now inbound the vehicle to the location
 						requestvehicle.updateVehicleLocation(baylocation);
-						requestvehicle = baylogic.AddVIN(requestvehicle, eBayArrival.eBay_TruckIn);	
+						requestvehicle = baylogic.AddVIN(requestvehicle, eBayArrival.eBay_VINAdd);	
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
